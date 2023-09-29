@@ -7,11 +7,18 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState(null);
-  // Simulate user authentication on page load (you can replace this with your actual authentication logic)
+
+  // Initialize user and username from local storage on page load
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
+    const storedUsername = localStorage.getItem('username');
+
     if (storedUser) {
       setUser(JSON.parse(storedUser));
+    }
+
+    if (storedUsername) {
+      setUsername(storedUsername);
     }
   }, []);
 
@@ -24,12 +31,11 @@ export function AuthProvider({ children }) {
     localStorage.setItem('user', JSON.stringify(userData));
     localStorage.setItem('username', extractedUsername); // Store the extracted username
   };
-  
-  
 
   const logout = () => {
     // Implement your logout logic here, e.g., clearing tokens and state
     setUser(null);
+    setUsername(null);
     localStorage.removeItem('user');
     localStorage.removeItem('username');
   };

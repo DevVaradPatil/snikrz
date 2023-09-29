@@ -2,15 +2,22 @@ import React from "react";
 import Header from "./Header";
 import Items from "./Items";
 import AboutCard from "./AboutCard";
+import SignIn from './SignIn'
 import Offer from "./Offer";
 import { useAuth } from "../AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const {user} = useAuth();
-  console.log("USE",user);
-  if(!user){
-    window.location.href = '/signin'
+  const { user } = useAuth();
+
+  // Check if the user is not authenticated
+  if (!user) {
+    // Redirect to the /signin page
+    // Return null or a message if you don't want to render anything
+    return <SignIn />;
   }
+
+  // Render the content for authenticated users
   return (
     <div>
       <Header />

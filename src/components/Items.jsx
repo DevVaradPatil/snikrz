@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ItemCard from "./ItemCard";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
 const Items = () => {
   const shoes = useContext(ShoeContext);
   const { user } = useAuth();
-
+  
   return (
     <div className="flex justify-center px-20 items-center w-full">
       <div className="w-[80%] xs:w-full xs:px-3 py-14 gap-10 flex flex-wrap justify-center items-center">
