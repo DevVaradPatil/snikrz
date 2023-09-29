@@ -13,7 +13,7 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
     // Assuming you have an API endpoint to add/remove favorites
     setisFavourite((prevIsFavorite) => !prevIsFavorite);
 
-    fetch(`http://localhost:3000/api/add-to-favorites`, {
+    fetch(`https://snikrz-backend.onrender.com/api/add-to-favorites`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
   
   const deleteFromCart = ()=>{
 
-    fetch(`http://localhost:3000/api/add-to-cart`, {
+    fetch(`https://snikrz-backend.onrender.com/api/add-to-cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

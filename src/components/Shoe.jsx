@@ -21,7 +21,7 @@ const Shoe = () => {
     // Ensure user is not null before making the fetch request
     if (user) {
       // Make a fetch request to get shoe details by ID
-      fetch(`http://localhost:3000/api/shoes/${id}?username=${user.username}`) // Pass the username as a query parameter
+      fetch(`https://snikrz-backend.onrender.com/api/shoes/${id}?username=${user.username}`) // Pass the username as a query parameter
         .then((response) => response.json())
         .then((data) => {
           // Update the state with the fetched shoe details
@@ -45,7 +45,7 @@ const Shoe = () => {
     // Assuming you have an API endpoint to add/remove favorites
     setIsFavourite((prevIsFavorite) => !prevIsFavorite);
 
-    fetch(`http://localhost:3000/api/add-to-favorites`, {
+    fetch(`https://snikrz-backend.onrender.com/api/add-to-favorites`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const Shoe = () => {
     // Assuming you have an API endpoint to add/remove favorites
     setIsCart((prevIsCart) => !prevIsCart);
 
-    fetch(`http://localhost:3000/api/add-to-cart`, {
+    fetch(`https://snikrz-backend.onrender.com/api/add-to-cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

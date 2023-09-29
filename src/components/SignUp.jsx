@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 function Signup() {
-    const { user } = useAuth();
+    const { login,user } = useAuth();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -13,7 +13,7 @@ function Signup() {
   });
   if (user) {
     // Redirect to the homepage
-    window.location.href = '/profile';
+    window.location.href = '/';
   } 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +25,7 @@ function Signup() {
 
     try {
       // Make a POST request to your backend route
-      const response = await axios.post('http://localhost:3000/api/auth/register', formData);
+      const response = await axios.post('https://snikrz-backend.onrender.com/api/auth/register', formData);
       // Handle success (e.g., show a success message or redirect to another page)
       console.log('Signup successful', response.data);
       login(response.data)

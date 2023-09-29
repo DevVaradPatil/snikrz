@@ -14,7 +14,7 @@ const ShoeProvider = ({ children }) => {
     if (user) {
       // Fetch the shoe data including user's favorites based on user's username
       axios
-        .get(`http://localhost:3000/api/shoes?username=${user.username}`)
+        .get(`https://snikrz-backend.onrender.com/api/shoes?username=${user.username}`)
         .then((response) => {
           setShoes(response.data);
         })

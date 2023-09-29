@@ -33,7 +33,7 @@ function SignIn() {
 
     try {
       // Make a POST request to your backend login route
-      const response = await axios.post('http://localhost:3000/api/auth/login', formData);
+      const response = await axios.post('https://snikrz-backend.onrender.com/api/auth/login', formData);
 
       // Handle successful login
       console.log('Login successful', response.data);

@@ -6,6 +6,11 @@ import Offer from "./Offer";
 import { useAuth } from "../AuthContext";
 
 const Home = () => {
+  const {user} = useAuth();
+  console.log("USE",user);
+  if(!user){
+    window.location.href = '/signin'
+  }
   return (
     <div>
       <Header />
