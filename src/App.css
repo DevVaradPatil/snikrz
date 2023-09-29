@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  color: #333;
+  z-index: 10;
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the scrollbar width as needed */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #666; /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+/* Change thumb color on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* Color on hover */
+}
+
+.bg-img-shoe{
+  background-image: url('https://images.unsplash.com/photo-1579298245158-33e8f568f7d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1790&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.bg-img-shoe2{
+  background-image: url('https://images.unsplash.com/photo-1514385295299-4f4327e50847?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.bg-img-shoe3{
+  background-image: url('https://images.unsplash.com/photo-1552346154-21d32810aba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.footlink:hover{
+  color: gray;
+}
