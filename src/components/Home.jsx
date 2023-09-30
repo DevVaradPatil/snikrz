@@ -5,7 +5,6 @@ import AboutCard from "./AboutCard";
 import SignIn from './SignIn'
 import Offer from "./Offer";
 import { useAuth } from "../AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { user } = useAuth();

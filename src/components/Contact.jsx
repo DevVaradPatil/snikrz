@@ -59,7 +59,7 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-2 flex flex-col gap-4 w-full pr-10"
+          className="mt-2 flex flex-col gap-4 w-full pr-10 xs:pr-0"
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-3">Your Name</span>
@@ -94,7 +94,7 @@ const Contact = () => {
               className="bg-transparent py-4 px-6 placeholder:text-slate-700  text-black  outlined-none border rounded-lg border-slate-300 font-medium"
             /> 
           </label>
-          <button type="submit" className="bg-white border transition-all duration-200 hover:text-white hover:bg-transparent hover:scale-105 hover:border-white w-[40%] py-3 px-8 otuline-none text-[20px] font-bold shadow-md rounded-xl " >
+          <button type="submit" className="bg-white border transition-all duration-200 hover:text-white hover:bg-transparent hover:scale-105 hover:border-white w-[40%] xs:w-auto py-3 px-8 otuline-none text-[20px] font-bold shadow-md rounded-xl " >
             {loading ? 'Sending...' : 'SEND'}
           </button>
         </form>

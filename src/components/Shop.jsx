@@ -56,7 +56,7 @@ const Shop = () => {
         </select>
       </div>
       </div>
-      <div className="flex justify-center px-20 items-center w-full">
+      <div className="flex justify-center px-20 xs:px-4 items-center w-full">
         <div className="w-[80%] xs:w-full xs:px-3 py-14 gap-10 flex flex-wrap justify-center items-center">
           {sortedData.map((card, index) => (
             <ItemCard

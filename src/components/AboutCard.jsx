@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const AboutCard = () => {
   const [ref, inView] = useInView({
@@ -35,7 +36,7 @@ const AboutCard = () => {
 
   return (
     <motion.div
-      className="mx-20 xs:mx-3 bg-[#C7BED9] pb-0 flex xs:flex-col-reverse justify-center items-center p-10 xs:p-4 pt-6 xs:pt-6 my-10 xs:pb-0 rounded-3xl"
+      className="mx-20 xs:mx-3 bg-[#C7BED9] pb-0 flex xs:flex-col-reverse justify-center items-center p-10 xs:p-4 pt-6 xs:pt-6 my-10 xs:pb-0 rounded-3xl overflow-hidden"
       ref={ref}
       initial={{ x: -100, opacity: 0 }}
       animate={cardAnimated ? { x: 0, opacity: 1 } : {}}
@@ -79,9 +80,11 @@ const AboutCard = () => {
           classics to trendy must-haves, we curate the perfect pair for every
           step of your journey. Step in and step out in style!
         </p>
+        <Link to='/about'>
         <button className="mt-5 text-lg flex justify-center items-center gap-3 bg-violet-600 text-white p-4 rounded-xl tracking-wider transition-transform transform hover:scale-105 hover:bg-violet-400 hover:text-gray-100 xs:text-base xs:p-3 xs:tracking-wide xs:gap-2">
           Explore More <FaArrowRightLong />
         </button>
+        </Link>
       </motion.div>
     </motion.div>
   );

@@ -27,9 +27,8 @@ function Signup() {
       // Make a POST request to your backend route
       const response = await axios.post('https://snikrz-backend.onrender.com/api/auth/register', formData);
       // Handle success (e.g., show a success message or redirect to another page)
-      console.log('Signup successful', response.data);
-      login(response.data)
-      window.location.href = '/profile';
+      
+      window.location.href = '/singin';
     } catch (error) {
       // Handle errors (e.g., show an error message to the user)
       console.error('Signup error', error);
