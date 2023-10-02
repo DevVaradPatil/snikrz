@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
-import { useAuth } from '../AuthContext'; // Import the hook
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import axios from "axios"; // Import Axios
+import { useAuth } from "../AuthContext"; // Import the hook
+import { Link } from "react-router-dom";
 
 function Signup() {
-    const { login,user } = useAuth();
+  const { login, user } = useAuth();
 
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
   if (user) {
     // Redirect to the homepage
-    window.location.href = '/';
-  } 
+    window.location.href = "/";
+  }
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -25,16 +24,18 @@ function Signup() {
 
     try {
       // Make a POST request to your backend route
-      const response = await axios.post('https://snikrz-backend.onrender.com/api/auth/register', formData);
+      const response = await axios.post(
+        "https://snikrz-backend.onrender.com/api/auth/register",
+        formData
+      );
       // Handle success (e.g., show a success message or redirect to another page)
-      
-      window.location.href = '/singin';
+
+      window.location.href = "/singin";
     } catch (error) {
       // Handle errors (e.g., show an error message to the user)
-      console.error('Signup error', error);
+      console.error("Signup error", error);
     }
   };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -80,9 +81,8 @@ function Signup() {
               />
             </div>
           </div>
-          
+
           <div>
-            
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -93,7 +93,7 @@ function Signup() {
         </form>
         <div className="text-sm text-left">
           <p>
-            Already have an account?{' '}
+            Already have an account?{" "}
             <Link
               to="/login"
               className="font-medium text-indigo-600 hover:text-indigo-500"

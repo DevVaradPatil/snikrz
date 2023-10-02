@@ -1,9 +1,20 @@
 import React, { useState } from "react";
-import { FaRegHeart, FaHeart, FaTrashCan } from "react-icons/fa6";
-import { MdDeleteForever } from'react-icons/md';
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
+import { MdDeleteForever } from "react-icons/md";
 
-const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,isFav }) => { 
-  const [isFavourite, setisFavourite] = useState(isFav)
+const ItemCard = ({
+  username,
+  id,
+  title,
+  price,
+  img,
+  bg,
+  isNew,
+  isHot,
+  discount,
+  isFav,
+}) => {
+  const [isFavourite, setisFavourite] = useState(isFav);
   const handleCardClick = () => {
     window.location.href = `/shoe/${id}`;
   };
@@ -37,9 +48,8 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
         console.error("Error:", error);
       });
   };
-  
-  const deleteFromCart = ()=>{
 
+  const deleteFromCart = () => {
     fetch(`https://snikrz-backend.onrender.com/api/add-to-cart`, {
       method: "POST",
       headers: {
@@ -55,7 +65,7 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
         // Check the response from the server and update the UI accordingly
         if (data.success) {
           console.log("Added/Removed from cart");
-          window.location.href = '/cart';
+          window.location.href = "/cart";
         } else {
           // Handle error, e.g., show a message to the user
           console.error("Failed to add to cart.");
@@ -64,14 +74,10 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
       .catch((error) => {
         console.error("Error:", error);
       });
-  }
-
+  };
 
   return (
-    <div
-      className="flex justify-center items-center gap-3 relative rounded-2xl overflow-hidden flex-col"
-     
-    >
+    <div className="flex justify-center items-center gap-3 relative rounded-2xl overflow-hidden flex-col">
       <div
         className={`${bg} w-[225px] h-[275px] rounded-2xl flex justify-center items-center p-5 cursor-pointer `}
         onClick={handleCardClick}
@@ -99,12 +105,22 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
       </div>
       <div className="flex justify-center items-start flex-col w-full p-3">
         <div className="flex w-full justify-between items-center">
-        <h3 className=" font-bold cursor-pointer"  onClick={handleCardClick}>{title}</h3>
-        {isFavourite ? (
-        <FaHeart fontSize={18} className="ml-1 text-red-600 cursor-pointer" onClick={handleFavoriteClick}/>
-        ):(
-        <FaRegHeart fontSize={18} className="ml-1 text-red-600 cursor-pointer" onClick={handleFavoriteClick}/>
-        )}
+          <h3 className="font-bold cursor-pointer" onClick={handleCardClick}>
+            {title.length > 18 ? title.substring(0, 18) + "..." : title}
+          </h3>
+          {isFavourite ? (
+            <FaHeart
+              fontSize={18}
+              className="ml-1 text-red-600 cursor-pointer"
+              onClick={handleFavoriteClick}
+            />
+          ) : (
+            <FaRegHeart
+              fontSize={18}
+              className="ml-1 text-red-600 cursor-pointer"
+              onClick={handleFavoriteClick}
+            />
+          )}
         </div>
         <h3 className=" text-red-600">
           $ {discount}{" "}
@@ -121,9 +137,12 @@ const ItemCard = ({username,id, title, price, img, bg, isNew, isHot, discount,is
             <div className="bg-green-600 rounded-full w-4 h-4" />
           </div>
         </div>
-        {insideCart === '/cart' && (
-          <div className="w-full flex justify-center items-center bg-red-600 text-white p-2  mt-2 rounded-lg gap-2 transition-colors duration-200 hover:bg-slate-600 hover:text-slate-300 cursor-pointer" onClick={deleteFromCart}>
-           Remove <MdDeleteForever fontSize={24}/>
+        {insideCart === "/cart" && (
+          <div
+            className="w-full flex justify-center items-center bg-red-600 text-white p-2  mt-2 rounded-lg gap-2 transition-colors duration-200 hover:bg-slate-600 hover:text-slate-300 cursor-pointer"
+            onClick={deleteFromCart}
+          >
+            Remove <MdDeleteForever fontSize={24} />
           </div>
         )}
       </div>

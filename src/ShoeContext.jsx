@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { useAuth } from './AuthContext'; // Assuming you have an AuthContext for user authentication
-import { useNavigate } from "react-router-dom";
+import { useAuth } from './AuthContext'; 
 
 // Create a context
 const ShoeContext = createContext();

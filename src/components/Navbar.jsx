@@ -8,7 +8,7 @@ import {
 } from "react-icons/hi";
 import { FaRegUser, FaRegHeart } from "react-icons/fa6";
 import { useAuth } from "../AuthContext";
-import logo from '../assets/logo1.png'
+import logo from "../assets/logo1.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -92,71 +92,66 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        
       </div>
       <div className="flex justify-start items-center md:w-[30%]">
-        <Link to='/'>
-        <img
-          src={logo}
-          alt="logo"
-          className="h-20 brightness-80"
-        />
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-20 brightness-80" />
         </Link>
       </div>
       <div className="flex justify-center items-center gap-3 xs:hidden md:w-[40%]">
-      <ul className="flex justify-center items-center gap-4 text-lg">
-              <li>
-                <Link
-                  to="/"
-                  className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
-                    location.pathname === "/"
-                      ? "text-violet-600 font-semibold border-b-violet-600"
-                      : ""
-                  }`}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/shop"
-                  className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
-                    location.pathname === "/shop"
-                      ? "text-violet-600 font-semibold border-b-violet-600"
-                      : ""
-                  }`}
-                >
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
-                    location.pathname === "/contact"
-                      ? "text-violet-600 font-semibold border-b-violet-600"
-                      : ""
-                  }`}
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/about"
-                  className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
-                    location.pathname === "/about"
-                      ? "text-violet-600 font-semibold border-b-violet-600"
-                      : ""
-                  }`}
-                >
-                  About
-                </Link>
-              </li>
-            </ul>
+        <ul className="flex justify-center items-center gap-4 text-lg">
+          <li>
+            <Link
+              to="/"
+              className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
+                location.pathname === "/"
+                  ? "text-violet-600 font-semibold border-b-violet-600"
+                  : ""
+              }`}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/shop"
+              className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
+                location.pathname === "/shop"
+                  ? "text-violet-600 font-semibold border-b-violet-600"
+                  : ""
+              }`}
+            >
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/contact"
+              className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
+                location.pathname === "/contact"
+                  ? "text-violet-600 font-semibold border-b-violet-600"
+                  : ""
+              }`}
+            >
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className={`text-slate-700 transition-all duration-200 border-b-2 border-b-transparent hover:border-b-violet-500 hover:text-violet-500 ${
+                location.pathname === "/about"
+                  ? "text-violet-600 font-semibold border-b-violet-600"
+                  : ""
+              }`}
+            >
+              About
+            </Link>
+          </li>
+        </ul>
       </div>
       <div className="flex gap-5 xs:gap-3 justify-end items-center md:w-[30%] ">
-      <button className="font-regular bg-transparent border-2  border-slate-400 rounded-xl xs:hidden p-3 flex justify-start items-center text-center h-14 text-slate-700 gap-2">
+        <button className="font-regular bg-transparent border-2  border-slate-400 rounded-xl xs:hidden p-3 flex justify-start items-center text-center h-14 text-slate-700 gap-2">
           <HiOutlineSearch fontSize={22} />{" "}
           <input
             type="text"
@@ -175,11 +170,11 @@ const Navbar = () => {
             </button>
           </Link>
         )}
-        <Link to='/favourites'>
-        <FaRegHeart fontSize={22} className="cursor-pointer" />
+        <Link to="/favourites">
+          <FaRegHeart fontSize={22} className="cursor-pointer" />
         </Link>
-        <Link to='/cart'>
-        <HiOutlineShoppingCart fontSize={22} className="cursor-pointer" />
+        <Link to="/cart">
+          <HiOutlineShoppingCart fontSize={22} className="cursor-pointer" />
         </Link>
       </div>
     </nav>

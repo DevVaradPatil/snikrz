@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const ImageGallery = ({ images }) => {
   const [mainImage, setMainImage] = useState(images[0]);
@@ -14,9 +14,15 @@ const ImageGallery = ({ images }) => {
           <div
             key={index}
             onClick={() => handleImageClick(image)}
-            className={`cursor-pointer rounded-md ml-1 overflow-hidden border-2 border-transparent transition-transform duration-300 transform hover:scale-105 ${mainImage === image ? 'border-gray-800 hover:scale-100' : ''}`}
+            className={`cursor-pointer rounded-md ml-1 overflow-hidden border-2 border-transparent transition-transform duration-300 transform hover:scale-105 ${
+              mainImage === image ? "border-gray-800 hover:scale-100" : ""
+            }`}
           >
-            <img src={image} alt={`Thumbnail ${index}`} className="w-16 h-16 " />
+            <img
+              src={image}
+              alt={`Thumbnail ${index}`}
+              className="w-16 h-16 "
+            />
           </div>
         ))}
       </div>

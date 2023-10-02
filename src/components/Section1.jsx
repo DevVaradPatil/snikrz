@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,8 +14,8 @@ function Section1() {
       opacity: 1,
       scrollTrigger: {
         trigger: section,
-        start: 'top center',
-        end: 'bottom center',
+        start: "top center",
+        end: "bottom center",
         scrub: true,
       },
     });

@@ -6,8 +6,7 @@ import ImageGallery from "./ImageGallery";
 import LoadingSpinner from "./LoadingSpinner";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { HiOutlineShoppingCart } from 'react-icons/hi'
-
+import { HiOutlineShoppingCart } from "react-icons/hi";
 
 const Shoe = () => {
   const { id } = useParams();
@@ -16,16 +15,20 @@ const Shoe = () => {
   const [isFavourite, setIsFavourite] = useState(false);
   const [isCart, setIsCart] = useState(false);
   const { user } = useAuth();
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     // Ensure user is not null before making the fetch request
     if (user) {
       // Make a fetch request to get shoe details by ID
-      fetch(`https://snikrz-backend.onrender.com/api/shoes/${id}?username=${user.username}`) // Pass the username as a query parameter
+      fetch(
+        `https://snikrz-backend.onrender.com/api/shoes/${id}?username=${user.username}`
+      ) // Pass the username as a query parameter
         .then((response) => response.json())
         .then((data) => {
           // Update the state with the fetched shoe details
           setShoeDetails(data);
+          setImages(data.images);
           setIsLoading(false); // Set isLoading to false when data is fetched
           setIsFavourite(data.isFav);
           setIsCart(data.isCart);
@@ -113,13 +116,6 @@ const Shoe = () => {
     "UK 11",
     "UK 12",
   ];
-  const images = [
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/31ff59e2-89d0-4a83-839a-656618674782/air-jordan-1-mid-shoes-SQf7DM.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6a2c328c-34bf-4699-9513-4fe80ee7e0fb/air-jordan-1-mid-shoes-SQf7DM.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2838806d-22c6-4cba-b015-8478a6ce6d64/air-jordan-1-mid-shoes-SQf7DM.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/82d26c28-58a2-464f-881e-b20d2b5eafa8/air-jordan-1-mid-shoes-SQf7DM.png",
-    "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/8dcaf01b-3c49-499e-a9b9-f65fd2c056f3/air-jordan-1-mid-shoes-SQf7DM.png",
-  ];
   const [selectedSize, setSelectedSize] = useState(null);
 
   // Function to handle size selection
@@ -146,7 +142,7 @@ const Shoe = () => {
             <h3 className="text-2xl font-medium">{shoeDetails.title}</h3>
             <h5 className="text-lg font-medium">Men's Shoes</h5>
             <p className="text-lg mt-2 font-medium">
-              MRP: $ {shoeDetails.price}
+              MRP: $ {shoeDetails.discount} <span className="text-slate-400 line-through">$ {shoeDetails.price}</span>
             </p>
             <p className=" text-gray-500 text-base">
               incl. of taxes <br /> (Also includes all applicable duties)
@@ -178,18 +174,30 @@ const Shoe = () => {
                   </div>
                 ))}
               </div>
-              <button className={`bg-black border border-black  mt-5 text-white font-semibold py-5 px-4 rounded-[30px] transition-all transform duration-300 ${isCart ? ' bg-yellow-500 border border-yellow-500 hover:scale-100 hover:bg-yellow-600' : 'hover:scale-105 hover:bg-gray-900' } flex justify-center items-center gap-4`} onClick={handleCartClick}>
-              {isCart ? (
+              <button
+                className={`bg-black border border-black  mt-5 text-white font-semibold py-5 px-4 rounded-[30px] transition-all transform duration-300 ${
+                  isCart
+                    ? " bg-yellow-500 border border-yellow-500 hover:scale-100 hover:bg-yellow-600"
+                    : "hover:scale-105 hover:bg-gray-900"
+                } flex justify-center items-center gap-4`}
+                onClick={handleCartClick}
+              >
+                {isCart ? (
                   <>
                     Added to Cart <HiOutlineShoppingCart fontSize={20} />
                   </>
                 ) : (
-                  <>
-                    Add to Cart 
-                  </>
+                  <>Add to Cart</>
                 )}
               </button>
-              <button className={`flex  justify-center items-center gap-3  border  mt-2  font-semibold py-5 px-4 rounded-[30px] transform transition-all duration-300 ${isFavourite ? " bg-red-600 border-red-600 hover:border-red-600 text-white" : "bg-white border-gray-600 hover:border-black text-black"}`} onClick={handleFavoriteClick}>
+              <button
+                className={`flex  justify-center items-center gap-3  border  mt-2  font-semibold py-5 px-4 rounded-[30px] transform transition-all duration-300 ${
+                  isFavourite
+                    ? " bg-red-600 border-red-600 hover:border-red-600 text-white"
+                    : "bg-white border-gray-600 hover:border-black text-black"
+                }`}
+                onClick={handleFavoriteClick}
+              >
                 {isFavourite ? (
                   <>
                     Added to Favourite <AiFillHeart fontSize={20} />

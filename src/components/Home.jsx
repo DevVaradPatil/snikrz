@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Items from "./Items";
 import AboutCard from "./AboutCard";
-import SignIn from './SignIn'
+import SignIn from "./SignIn";
 import Offer from "./Offer";
 import { useAuth } from "../AuthContext";
 

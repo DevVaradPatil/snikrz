@@ -30,7 +30,7 @@ const About = () => {
           title="Our Motto"
         />
         <InstaCard
-        classn="xs:mb-5"
+          classn="xs:mb-5"
           text="WE ARE SNIKRZ"
           video="https://firebasestorage.googleapis.com/v0/b/plantnet-d209c.appspot.com/o/shoe%20images%2Fproduction_id_4380323%20(1080p).mp4?alt=media&token=98a01a02-3837-4f9e-b551-1b0cd255e8c2"
           title="Who Are We"

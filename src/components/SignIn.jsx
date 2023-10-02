@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; // Import the hook
+import React, { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { useAuth } from "../AuthContext"; // Import the hook
 
 function SignIn() {
   const { login, user } = useAuth();
 
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   if (user) {
     // Redirect to the homepage if the user is already authenticated
-    window.location.href = '/';
+    window.location.href = "/";
   }
 
   const [loginSuccess, setLoginSuccess] = useState(false);
 
   if (loginSuccess) {
     // Redirect to the homepage if login is successful
-    window.location.href = '/';
+    window.location.href = "/";
   }
 
   const handleInputChange = (e) => {
@@ -33,10 +33,13 @@ function SignIn() {
 
     try {
       // Make a POST request to your backend login route
-      const response = await axios.post('https://snikrz-backend.onrender.com/api/auth/login', formData);
+      const response = await axios.post(
+        "https://snikrz-backend.onrender.com/api/auth/login",
+        formData
+      );
 
       // Handle successful login
-      console.log('Login successful', response.data);
+      console.log("Login successful", response.data);
 
       const userDataWithUsername = {
         ...response.data,
@@ -46,10 +49,10 @@ function SignIn() {
       login(userDataWithUsername); // Store user data in context
 
       setLoginSuccess(true);
-      window.location.href = '/';
+      window.location.href = "/";
     } catch (error) {
       // Handle login error
-      console.error('Login error', error);
+      console.error("Login error", error);
     }
   };
 
@@ -100,7 +103,7 @@ function SignIn() {
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <p>
-                Don't have an account?{' '}
+                Don't have an account?{" "}
                 <Link
                   to="/signup"
                   className="font-medium text-indigo-600 hover:text-indigo-500"

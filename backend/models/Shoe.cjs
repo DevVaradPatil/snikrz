@@ -9,6 +9,12 @@ const shoeSchema = new mongoose.Schema({
   bg: { type: String, required: true },
   isNew: { type: Boolean, required: true },
   isHot: { type: Boolean, required: true },
+  images: [
+    {
+      type: String
+    }
+  ],
+  payment: {type: String},
 });
 
 // Create a model based on the schema

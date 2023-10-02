@@ -5,8 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import CarouselCard from "./CarouselCard";
 import { NextArrow, PrevArrow } from "./Arrows";
 import banner1 from "../assets/banner1-transformed.png";
-import { motion } from "framer-motion";
-
 
 const Header = () => {
   var settings = {
@@ -35,7 +33,7 @@ const Header = () => {
         settings: {
           slidesToShow: 1,
           centerPadding: "10%",
-          arrows: false
+          arrows: false,
         },
       },
       {
@@ -43,7 +41,7 @@ const Header = () => {
         settings: {
           slidesToShow: 1,
           centerPadding: "5%",
-          arrows: false
+          arrows: false,
         },
       },
     ],
@@ -52,7 +50,6 @@ const Header = () => {
   return (
     <div className="mt-5">
       <Slider {...settings}>
-        
         <CarouselCard
           clr="1"
           title="lead the way"
